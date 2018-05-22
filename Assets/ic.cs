@@ -12,6 +12,12 @@ public class ic : MonoBehaviour {
 
     float im = 3.5f;
 
+    public GameObject p1;
+
+    public GameObject p2;
+
+    public GameObject p3;
+
 	// Use this for initialization
 	void Start () {
 		
