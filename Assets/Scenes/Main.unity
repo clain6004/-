@@ -411,6 +411,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 549044804}
+  - component: {fileID: 549044805}
   m_Layer: 0
   m_Name: spot1
   m_TagString: Untagged
@@ -431,6 +432,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &549044805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 549044803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3ea38efadba1a41b128021622f36dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  one: {fileID: 549044803}
+  a: {fileID: 100010, guid: 82cae3be473ca484a9bcb78cd1ffe783, type: 2}
+  b: {fileID: 100010, guid: 2ac9544e755505441badc01cc916d72c, type: 2}
+  c: {fileID: 163248, guid: 21b88a4554ef9c34c80f75d8b437a56a, type: 2}
+  d: {fileID: 111798, guid: ae82bc69e40759d4198b5bc0f6d15275, type: 2}
+  e: {fileID: 187824, guid: c49cea629b855c545bd356f206e37691, type: 2}
 --- !u!1001 &733994744
 Prefab:
   m_ObjectHideFlags: 0
@@ -741,6 +759,7 @@ MonoBehaviour:
   s: 10
   gr: 20
   jumped: 8
+  sliit: 1
 --- !u!143 &1215001289
 CharacterController:
   m_ObjectHideFlags: 0
@@ -842,6 +861,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
+--- !u!1 &1551805633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1551805634}
+  m_Layer: 0
+  m_Name: camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1551805634
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1551805633}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.109, z: -0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1215001287}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1674718531
 Prefab:
   m_ObjectHideFlags: 0
