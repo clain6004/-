@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ic : MonoBehaviour {
@@ -11,12 +10,6 @@ public class ic : MonoBehaviour {
     float i = 0.0f;
 
     float im = 3.5f;
-
-    public GameObject p1;
-
-    public GameObject p2;
-
-    public GameObject p3;
 
 	// Use this for initialization
 	void Start () {

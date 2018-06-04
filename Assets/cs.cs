@@ -7,7 +7,7 @@ public class cs : MonoBehaviour {
     public float gr=20.0f;
     public float jumped=8.0f;
 
-    private Vector3 moveD=Vector3.zero;
+   static public Vector3 moveD=Vector3.zero;
 
     CharacterController a;
 
@@ -65,7 +65,7 @@ public class cs : MonoBehaviour {
 
             a.center = newa;
 
-            a.height = collh * 0.5f;
+            a.height = collh * 0.1f;
 
         }
         else
@@ -81,7 +81,7 @@ public class cs : MonoBehaviour {
 
         if(a.isGrounded){
 
-            moveD =new Vector3(Input.GetAxis("Horizontal"),0,0);
+            moveD =new Vector3(Input.GetAxis("Horizontal")*0.5f,0,0);
 
 moveD=transform.TransformDirection(moveD);
 
