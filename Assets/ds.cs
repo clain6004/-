@@ -118,43 +118,151 @@ public class ds : MonoBehaviour
 
                 case 1:
 
-                    tim =5.0f;
+                    tim =16.0f;
 
                     break;
 
                 case 2:
 
-                    tim = 4.5f;
+                    tim = 15.5f;
 
                     break;
 
                 case 3:
 
-                    tim = 4.0f;
+                    tim =15.0f;
 
                     break;
 
                 case 4:
 
-                    tim = 3.5f;
+                    tim = 14.5f;
 
                     break;
 
                 case 5:
 
-                    tim = 3.0f;
+                    tim = 14.0f;
 
                     break;
 
                 case 6:
 
-                    tim = 2.5f;
+                    tim = 13.5f;
 
                     break;
 
                 case 7:
 
-                    tim = 2.0f;
+                    tim = 13.0f;
+
+                    break;
+
+                case 8:
+
+                    tim = 12.5f;
+
+                    break;
+
+                case 9:
+
+                    tim = 12.0f;
+
+                    break;
+
+                case 10:
+
+                    tim = 11.5f;
+
+                    break;
+
+                case 11:
+
+                    tim = 11.0f;
+
+                    break;
+
+                case 12:
+
+                    tim = 10.5f;
+
+                    break;
+
+                case 13:
+
+                    tim =10.0f;
+
+                    break;
+
+                case 14:
+
+                    tim = 9.5f;
+
+                    break;
+
+                case 15:
+
+                    tim = 9.0f;
+
+                    break;
+
+                case 16:
+
+                    tim = 8.5f;
+
+                    break;
+
+                case 17:
+
+                    tim = 8.0f;
+
+                    break;
+
+                case 18:
+
+                    tim = 7.5f;
+
+                    break;
+
+                case 19:
+
+                    tim = 7.0f;
+
+                    break;
+
+                case 20:
+
+                    tim = 6.5f;
+
+                    break;
+
+                case 21:
+
+                    tim = 6.0f;
+
+                    break;
+
+                case 22:
+
+                    tim = 5.5f;
+
+                    break;
+
+                case 23:
+
+                    tim = 5.0f;
+
+                    break;
+
+                case 24:
+
+                    tim = 4.5f;
+
+                    break;
+
+                case 25:
+
+                    tim = 4.0f;
 
                     break;
 

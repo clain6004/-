@@ -20,16 +20,14 @@ public class ms : MonoBehaviour {
 
         i += Time.deltaTime;
 
-
        Vector3 moved=new Vector3(0,0,-s);
+
       transform.Translate(moved*s*Time.deltaTime);
 
         if (i > im)
         {
 
             Destroy(gameObject);
-
-
 
         }
 

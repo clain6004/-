@@ -1,50 +1,61 @@
 ﻿using System.Collections;
+using UnityEngine.UI;
 using UnityEngine;
 
-public class cs : MonoBehaviour {
+public class cs : MonoBehaviour
+{
 
-    public float s=10.0f;
-    public float gr=20.0f;
-    public float jumped=8.0f;
+    public float s = 10.0f;
+    public float gr = 20.0f;
+    public float jumped = 8.0f;
 
-   static public Vector3 moveD=Vector3.zero;
+    static public Vector3 moveD = Vector3.zero;
 
-    CharacterController a;
+    CharacterController character;
 
     public float sliit = 1f;
 
     Animator ani;
 
-    Vector3 collc;
+    Vector3 characterCenter;
 
-    float collh;
+    float characterHeight;
 
     float slit = 0f;
 
+    float timeswich;
 
-	// Use this for initialization
-	void Start () {
-		
-        a=GetComponent<CharacterController>();
+    public float timemax = 2.0f;
 
-        collc = a.center;
+    static public bool danegeswich;
 
-        collh = a.height;
+    // Use this for initialization
+    void Start()
+    {
+
+        character = GetComponent<CharacterController>();
+
+        characterCenter = character.center;
+
+        characterHeight = character.height;
 
         ani = GetComponent<Animator>();
 
+   
 
+    }
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
+
+        timeswich += Time.deltaTime;
 
         bool isjump = Input.GetKey(KeyCode.Space);
 
         bool isslli = Input.GetKey(KeyCode.DownArrow);
 
-        ani.SetBool("IsGround",a.isGrounded);
+        ani.SetBool("IsGround", character.isGrounded);
 
         if (slit > 0)
         {
@@ -57,35 +68,37 @@ public class cs : MonoBehaviour {
 
         AnimatorStateInfo state = ani.GetCurrentAnimatorStateInfo(0);
 
-        if(state.nameHash==Animator.StringToHash("base Layer.sli")) {
+        if (state.fullPathHash == Animator.StringToHash("base Layer.sli"))
+        {
 
-            Vector3 newa = collc;
+            Vector3 newcharacterCenter = characterCenter;
 
-            newa.y *= 0.5f;
+            newcharacterCenter.y *= 0.5f;
 
-            a.center = newa;
+            character.center = newcharacterCenter;
 
-            a.height = collh * 0.1f;
+            character.height = characterHeight * 0.5f;
 
         }
         else
         {
 
-            a.center = collc;
+            character.center = characterCenter;
 
-            a.height = collh;
+            character.height = characterHeight;
 
         }
 
 
 
-        if(a.isGrounded){
+        if (character.isGrounded)
+        {
 
-            moveD =new Vector3(Input.GetAxis("Horizontal")*0.5f,0,0);
+            moveD = new Vector3(Input.GetAxis("Horizontal") * 0.4f, 0, 0);
 
-moveD=transform.TransformDirection(moveD);
+            moveD = transform.TransformDirection(moveD);
 
-            moveD *=s;
+            moveD *= s;
 
             if (isjump)
             {
@@ -93,6 +106,7 @@ moveD=transform.TransformDirection(moveD);
                 ani.SetTrigger("JumpStart");
 
             }
+
 
             if (isslli && slit <= 0)
             {
@@ -105,21 +119,46 @@ moveD=transform.TransformDirection(moveD);
 
             }
 
+
             if (Input.GetButton("Jump"))
             {
 
                 moveD.y = jumped;
 
             }
+        }
+
+            moveD.y -= gr * Time.deltaTime;
+
+            character.Move(moveD * Time.deltaTime);
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (js.life >= 2)
+        {
+
+            if (other.gameObject.tag == "d")
+            {
+
+                if (timeswich >= timemax)
+                {
+
+                    danegeswich = true;
+
+                    timeswich = 0;
+
+                    js.life -= 1;
+
+                }
+
+
+                }      
             }
 
-        moveD.y-=gr*Time.deltaTime;
+        }
 
-        a.Move(moveD*Time.deltaTime);
+    }
 
-}
-
-
-
-
-	}
