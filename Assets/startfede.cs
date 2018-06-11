@@ -79,11 +79,12 @@ public class startfede : MonoBehaviour
             colortime -= colortimemax;
 
             if (colortime <= 0)
+            {
 
                 colortime = 0;
 
-            bool colorc = true;
-
+                bool colorc = true;
+            }
         }
 
         starttext.GetComponent<Text>().color = new Color(textcolor, textcolor2, textcolor3, colortime);
