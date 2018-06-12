@@ -2,19 +2,20 @@
 using UnityEngine.UI;
 using UnityEngine;
 
-public class CUI : MonoBehaviour {
-   
+public class CUI : MonoBehaviour
+{
+
     public Text timew;
 
     public Text life;
 
     [SerializeField]
 
-  static  public float ttime;
+    static public float ttime;
 
     [SerializeField]
 
-    public int minue=0;
+    public int minue = 0;
 
     public float ttimeold;
 
@@ -22,7 +23,7 @@ public class CUI : MonoBehaviour {
 
     float tiememax;
 
-    public float swithtime=3.0f;
+    public float swithtime = 3.0f;
 
     public Text score;
 
@@ -30,77 +31,83 @@ public class CUI : MonoBehaviour {
 
     static public int scoretime2;
 
-	// Use this for initialization
-	void Start () {
+   
 
-     
+    // Use this for initialization
+    void Start()
+    {
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
 
-        ttime +=Time.deltaTime;
+    }
 
-        tiememax += Time.deltaTime;
+    // Update is called once per frame
+    void Update()
+    {
 
-        scoretime += Time.deltaTime;
-
-        int scoretime2 = (int)scoretime*10;
-
-        if (ttime >= 60f)
+        if (js.timeswich==true)
         {
 
-            minue++;
+            ttime += Time.deltaTime;
 
-            ttime = ttime - 60;
+            tiememax += Time.deltaTime;
 
-        }
+            scoretime += Time.deltaTime;
 
-        if ((int)ttime != (int)ttimeold)
-        {
+            int scoretime2 = (int)scoretime * 10;
 
-            timew.GetComponent<Text>().text = minue.ToString("00")+":"+((int)ttime).ToString("00");
+            if (ttime >= 60f)
+            {
 
-        }
+                minue++;
 
-        ttimeold = ttime;
+                ttime = ttime - 60;
 
-        score.GetComponent<Text>().text = scoretime2.ToString();
+            }
 
-        switch (js.life)
-        {
+            if ((int)ttime != (int)ttimeold)
+            {
 
-            case 1:
+                timew.GetComponent<Text>().text = minue.ToString("00") + ":" + ((int)ttime).ToString("00");
 
-                lifetext = "";
+            }
 
-                break;
+            ttimeold = ttime;
 
-            case 2:
+            score.GetComponent<Text>().text = scoretime2.ToString();
 
-                lifetext = "-";
+            switch (js.life)
+            {
 
-                break;
+                case 1:
 
-            case 3:
+                    lifetext = "";
 
-                lifetext = "--";
+                    break;
 
-                break;
+                case 2:
 
-            case 4:
+                    lifetext = "-";
 
-                lifetext = "---";
+                    break;
 
-                break;
+                case 3:
 
-        }
-            
+                    lifetext = "--";
+
+                    break;
+
+                case 4:
+
+                    lifetext = "---";
+
+                    break;
+
+            }
+
             life.GetComponent<Text>().text = lifetext;
 
         }
 
-	}
-
+    }
+}
 

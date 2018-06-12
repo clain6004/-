@@ -46,45 +46,48 @@ public class ds : MonoBehaviour
     void Update()
     {
 
+        if (js.timeswich == true) { 
+
         ti += Time.deltaTime;
 
-        if (ti > tim)
-        {
-
-            ti = 0.0f;
-
-            item = Random.Range(1, itemm);
-
-            if (item <= 3)
+            if (ti > tim)
             {
 
-                prehab = a;
+                ti = 0.0f;
 
-            }
-            else if (item > 3 && item < 7)
-            {
+                item = Random.Range(1, itemm);
 
-                prehab = b;
+                if (item <= 3)
+                {
 
-            }
-            else if (item < 10 && item > 6)
-            {
+                    prehab = a;
 
-                prehab = c;
+                }
+                else if (item > 3 && item < 7)
+                {
 
-            } else if (item < 14 && item > 9)
-            {
+                    prehab = b;
 
-                prehab = d;
+                }
+                else if (item < 10 && item > 6)
+                {
 
-            }
+                    prehab = c;
 
-            int w = Random.Range(1, 4);
+                }
+                else if (item < 14 && item > 9)
+                {
 
-          
+                    prehab = d;
+
+                }
+
+                int w = Random.Range(1, 4);
 
 
-          
+
+
+
                 switch (w)
                 {
 
@@ -108,166 +111,95 @@ public class ds : MonoBehaviour
 
 
                 }
-            
-     
 
-       int timep=Random.Range(times,timem);
 
-            switch (timep)
-            {
 
-                case 1:
+                int timep = Random.Range(times, timem);
 
-                    tim =16.0f;
+                switch (timep)
+                {
 
-                    break;
+                    case 1:
 
-                case 2:
+                        tim = 10.0f;
 
-                    tim = 15.5f;
+                        break;
 
-                    break;
+                    case 2:
 
-                case 3:
+                        tim = 9.5f;
 
-                    tim =15.0f;
+                        break;
 
-                    break;
+                    case 3:
 
-                case 4:
+                        tim = 9.0f;
 
-                    tim = 14.5f;
+                        break;
 
-                    break;
+                    case 4:
 
-                case 5:
+                        tim = 8.5f;
 
-                    tim = 14.0f;
+                        break;
 
-                    break;
+                    case 5:
 
-                case 6:
+                        tim = 8.0f;
 
-                    tim = 13.5f;
+                        break;
 
-                    break;
+                    case 6:
 
-                case 7:
+                        tim = 7.5f;
 
-                    tim = 13.0f;
+                        break;
 
-                    break;
+                    case 7:
 
-                case 8:
+                        tim = 7.0f;
 
-                    tim = 12.5f;
+                        break;
 
-                    break;
+                    case 8:
 
-                case 9:
+                        tim = 6.5f;
 
-                    tim = 12.0f;
+                        break;
 
-                    break;
+                    case 9:
 
-                case 10:
+                        tim = 6.0f;
 
-                    tim = 11.5f;
+                        break;
 
-                    break;
+                    case 10:
 
-                case 11:
+                        tim = 5.5f;
 
-                    tim = 11.0f;
+                        break;
 
-                    break;
+                    case 11:
 
-                case 12:
+                        tim = 5.0f;
 
-                    tim = 10.5f;
+                        break;
 
-                    break;
+                    case 12:
 
-                case 13:
+                        tim = 4.5f;
 
-                    tim =10.0f;
+                        break;
 
-                    break;
+                    case 13:
 
-                case 14:
+                        tim = 4.0f;
 
-                    tim = 9.5f;
+                        break;
 
-                    break;
-
-                case 15:
-
-                    tim = 9.0f;
-
-                    break;
-
-                case 16:
-
-                    tim = 8.5f;
-
-                    break;
-
-                case 17:
-
-                    tim = 8.0f;
-
-                    break;
-
-                case 18:
-
-                    tim = 7.5f;
-
-                    break;
-
-                case 19:
-
-                    tim = 7.0f;
-
-                    break;
-
-                case 20:
-
-                    tim = 6.5f;
-
-                    break;
-
-                case 21:
-
-                    tim = 6.0f;
-
-                    break;
-
-                case 22:
-
-                    tim = 5.5f;
-
-                    break;
-
-                case 23:
-
-                    tim = 5.0f;
-
-                    break;
-
-                case 24:
-
-                    tim = 4.5f;
-
-                    break;
-
-                case 25:
-
-                    tim = 4.0f;
-
-                    break;
+                }
 
             }
-
 
         }
     }

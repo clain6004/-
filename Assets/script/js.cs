@@ -9,10 +9,14 @@ public class js : MonoBehaviour {
 
     public float time2=4f;
 
+    public int time3 = 14;
+
     static public int life;
 
-	// Use this for initialization
-	void Start () {
+    static public bool timeswich = false;
+
+    // Use this for initialization
+    void Start () {
 
         life = 4;
 
@@ -28,11 +32,16 @@ public class js : MonoBehaviour {
         if (time1>time2)
         {
 
-             time1 = 0f;
+            if (ds.times < 14)
+            {
 
-            ds.timem += 1;
+                time1 = 0f;
 
-            ds.times += 1;
+                ds.timem += 1;
+
+                ds.times += 1;
+
+            }
 
         }
 

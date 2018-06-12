@@ -33,7 +33,7 @@ public class startfede : MonoBehaviour
 
     public int counttime2;
 
-    bool colorc=false;
+  
 
     // Use this for initialization
     void Start()
@@ -76,6 +76,8 @@ public class startfede : MonoBehaviour
         if (time_ >= 5)
         {
 
+          js.timeswich = true;
+
             colortime -= colortimemax;
 
             if (colortime <= 0)
@@ -83,7 +85,7 @@ public class startfede : MonoBehaviour
 
                 colortime = 0;
 
-                bool colorc = true;
+             
             }
         }
 
@@ -91,11 +93,6 @@ public class startfede : MonoBehaviour
 
         GetComponent<RawImage>().color = new Color(damegecolor, damegecolor2, damegecolor3, colortime);
 
-        if (colorc)
-        {
-
-
-        }
 
     }
   
