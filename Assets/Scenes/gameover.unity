@@ -548,8 +548,8 @@ MonoBehaviour:
   score: 0
   text:
   - {fileID: 1577302604}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1630728189}
+  - {fileID: 2091808834}
 --- !u!1 &1285236464
 GameObject:
   m_ObjectHideFlags: 0

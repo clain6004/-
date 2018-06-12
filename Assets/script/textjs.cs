@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class textjs : MonoBehaviour {
 
-    int[] ranking = new int[2];
+    int[] ranking = new int[3];
 
-    public int score;
+    static public int score;
 
     bool update=false;
 
@@ -25,7 +25,7 @@ public class textjs : MonoBehaviour {
         for (int i = 0; i < 3; i++)
         {
 
-            ranking[i] = PlayerPrefs.GetInt("time" + i, 0);
+            ranking[i] = PlayerPrefs.GetInt("time" + i, score);
 
         }
 
@@ -36,10 +36,10 @@ public class textjs : MonoBehaviour {
             {
 
                 PlayerPrefs.SetInt("time"+i, ranking[i - 1]);
+             
 
             }
-
-            if (score > ranking[i])
+           else if (score > ranking[i])
             {
 
                 PlayerPrefs.SetInt("time" + i,score);
@@ -48,13 +48,15 @@ public class textjs : MonoBehaviour {
 
             }
 
-            text[0].text= PlayerPrefs.GetInt("time",ranking[0]).ToString();
-
-            text[1].text = PlayerPrefs.GetInt("time", ranking[1]).ToString();
-
-            text[2].text = PlayerPrefs.GetInt("time", ranking[2]).ToString();
+            
 
         }
+
+            text[0].text= PlayerPrefs.GetInt("time0",ranking[0]).ToString();
+
+            text[1].text = PlayerPrefs.GetInt("time1", ranking[1]).ToString();
+
+            text[2].text = PlayerPrefs.GetInt("time2", ranking[2]).ToString();
 
 	}
 
