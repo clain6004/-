@@ -1,60 +1,269 @@
 ﻿using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class rogofade : MonoBehaviour {
 
-    float [] textcolor=new float[2];
+    float [] textcolor=new float[3];
 
-    float [] textcolor2 = new float[2];
+    float [] textcolor2 = new float[3];
 
-    float [] textcolor3 = new float[2];
+    float [] textcolor3 = new float[3];
+
+    float[] backcolor = new float[5];
+
+    float[] backcolor2 = new float[5];
+
+    float[] backcolor3 = new float[5];
 
     float time_;
 
-    float colortime = 1f;
+    float [] colortime = new float[4];
 
     public float colortimemax = 0.007f;
 
-    public RawImage[] rawImages = new RawImage[2];
+    public RawImage[] rawImages = new RawImage[3];
 
     public Text[] texts = new Text[5];
 
     public float fedetime=1.0f;
 
+    bool [] rogoswich =new bool[4];
+
+    bool [] inputswich=new bool[4];
+
+    bool[] senceswich=new bool[4];
+
     // Use this for initialization
     void Start () {
 
-        textcolor[0] =rawImages[0].GetComponent<RawImage>().color.r;
-
-        textcolor2[0] = rawImages[0].GetComponent<RawImage>().color.g;
-
-        textcolor3[0] = rawImages[0].GetComponent<RawImage>().color.b;
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-
-        colortime += colortimemax;
-
-        if (colortime >= 1)
+        for (int i = 0; i < 3; i++)
         {
 
-            colortime = 1;
+            textcolor[i] = rawImages[i].GetComponent<RawImage>().color.r;
 
-   time_ += Time.deltaTime;
+            textcolor2[i] = rawImages[i].GetComponent<RawImage>().color.g;
 
-            if (time_ >=fedetime)
+            textcolor3[i] = rawImages[i].GetComponent<RawImage>().color.b;
+
+        }
+
+        for (int i = 0; i <= 4; i++)
+        {
+
+            backcolor[i] = texts[i].GetComponent<Text>().color.r;
+
+            backcolor2[i] = texts[i].GetComponent<Text>().color.g;
+
+            backcolor3[i] = texts[i].GetComponent<Text>().color.b;
+
+        }
+
+        for (int i = 0; i <= 3; i++)
+        {
+
+            colortime[i] = 0.0f;
+
+        }
+
+
+        for (int i=0; i < 3; i++)
+        {
+            rogoswich[i] = false;
+
+            inputswich[i] = false;
+
+            senceswich[i] = false;
+
+        }
+    }
+
+    // Update is called once per frame
+    void Update() {
+
+        if (rogoswich[0] == false) {
+
+            colortime[0] += colortimemax;
+
+            if (colortime[0] >= 1f)
             {
 
+                rogoswich[0] = true;
 
+            }
+
+        } else
+        {
+
+            if (Input.anyKeyDown)
+            {
+
+                inputswich[0] = true;
+
+
+            }
+
+            if (inputswich[0] == true)
+            {
+
+                colortime[0] -= colortimemax;
+
+                senceswich[0] = true;
 
             }
 
         }
 
-       rawImages[0].GetComponent<RawImage>().color = new Color(textcolor[0],textcolor2[0],textcolor3[0], colortime);
+
+
+        if (senceswich[0] == true)
+        {
+
+            if (rogoswich[1] == false)
+            {
+
+                time_ += Time.deltaTime;
+
+                if (time_ >= 3)
+                {
+
+                    colortime[1] += colortimemax;
+
+                }
+
+                if (colortime[1] >= 1f)
+                {
+
+ time_ = 0;
+                    rogoswich[1] = true;
+
+                   
+                }
+
+            }
+            else
+            {
+
+                if (Input.anyKeyDown)
+                {
+
+                    inputswich[1] = true;
+
+
+                }
+
+                if (inputswich[1] == true)
+                {
+
+                    colortime[1] -= colortimemax;
+
+                    senceswich[1] = true;
+
+                }
+
+            }
+
+        }
+
+        if (senceswich[1] == true)
+        {
+
+            if (rogoswich[2] == false)
+            {
+
+                
+
+                time_ += Time.deltaTime;
+
+                if (time_ >= 3)
+                {
+
+                    colortime[2] += colortimemax;
+
+                }
+
+                if (colortime[2] >= 1f)
+                {
+
+                    rogoswich[2] = true;
+
+                }
+
+            }
+            else
+            {
+
+                if (Input.anyKeyDown)
+                {
+
+                    inputswich[2] = true;
+
+
+                }
+
+                if (inputswich[2] == true)
+                {
+
+                    colortime[2] -= colortimemax;
+
+                    senceswich[2] = true;
+
+
+
+                }
+
+            }
+
+        }
+
+        if (senceswich[2] == true)
+        {
+
+            if (rogoswich[3] == false)
+            {
+
+
+
+                colortime[3] += colortimemax;
+
+
+
+                if (colortime[3] >= 1f)
+                {
+
+                    rogoswich[3] = true;
+
+                }
+
+            }
+            else
+            {
+
+                SceneManager.LoadScene("title");
+
+            }
+
+        }
+
+        for (int i = 0; i < 2; i++) { 
+
+        rawImages[i].GetComponent<RawImage>().color = new Color(textcolor[i], textcolor2[i], textcolor3[i], colortime[i]);
+
+    }
+
+        rawImages[2].GetComponent<RawImage>().color = new Color(textcolor[2], textcolor2[2], textcolor3[2], colortime[3]);
+
+        texts[0].GetComponent<Text>().color = new Color(backcolor[0], backcolor2[0], backcolor3[0], colortime[0]);
+
+    for(int i = 1; i < 5; i++)
+        {
+
+            texts[i].GetComponent<Text>().color = new Color(backcolor[i], backcolor2[i], backcolor3[i], colortime[2]);
+
+        }
+
+
 
     }
 }
