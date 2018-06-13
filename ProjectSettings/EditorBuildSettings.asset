@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/rogo.unity
-    guid: eed4c91d16c29d8459fe07b90ffe6886
-  - enabled: 1
     path: Assets/Scenes/title.unity
     guid: 6886e8a9992f1204f8182fb4f3cb7fe1
   - enabled: 1
