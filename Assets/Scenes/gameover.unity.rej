@@ -1,0 +1,9 @@
+diff a/Assets/Scenes/gameover.unity b/Assets/Scenes/gameover.unity	(rejected hunks)
+@@ -545,6 +545,7 @@
+   m_Script: {fileID: 11500000, guid: c8932a15f3b735f4ea1b6297f5166062, type: 3}
+   m_Name: 
+   m_EditorClassIdentifier: 
++  score: 0
+   text:
+   - {fileID: 1577302604}
+   - {fileID: 1630728189}
