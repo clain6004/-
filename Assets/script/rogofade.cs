@@ -17,7 +17,7 @@ public class rogofade : MonoBehaviour {
 
     float[] backcolor3 = new float[5];
 
-    float time_;
+    float [] time_=new float[1];
 
     float [] colortime = new float[4];
 
@@ -35,8 +35,16 @@ public class rogofade : MonoBehaviour {
 
     bool[] senceswich=new bool[4];
 
+    public AudioClip rogoodio;
+
+    public AudioClip rogoodio2;
+
+    AudioSource audioSource;
+
     // Use this for initialization
     void Start () {
+
+        audioSource = GetComponent<AudioSource>();
 
         for (int i = 0; i < 3; i++)
         {
@@ -89,15 +97,24 @@ public class rogofade : MonoBehaviour {
             if (colortime[0] >= 1f)
             {
 
-                rogoswich[0] = true;
+            
 
+                    rogoswich[0] = true;
+
+                audioSource.PlayOneShot(rogoodio);
+
+                
             }
 
         } else
         {
 
+
+
             if (Input.anyKeyDown)
             {
+
+
 
                 inputswich[0] = true;
 
@@ -123,9 +140,9 @@ public class rogofade : MonoBehaviour {
             if (rogoswich[1] == false)
             {
 
-                time_ += Time.deltaTime;
+                time_[0] += Time.deltaTime;
 
-                if (time_ >= 3)
+                if (time_[0] >= 3)
                 {
 
                     colortime[1] += colortimemax;
@@ -135,10 +152,11 @@ public class rogofade : MonoBehaviour {
                 if (colortime[1] >= 1f)
                 {
 
- time_ = 0;
+ time_[0] = 0;
                     rogoswich[1] = true;
 
-                   
+                    audioSource.PlayOneShot(rogoodio2);
+
                 }
 
             }
@@ -174,9 +192,9 @@ public class rogofade : MonoBehaviour {
 
                 
 
-                time_ += Time.deltaTime;
+                time_[0] += Time.deltaTime;
 
-                if (time_ >= 3)
+                if (time_[0] >= 3)
                 {
 
                     colortime[2] += colortimemax;

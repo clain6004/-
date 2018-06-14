@@ -29,6 +29,20 @@ public class cs : MonoBehaviour
 
     static public bool danegeswich;
 
+    public AudioClip jampse;
+
+    public AudioClip hitse;
+
+    public AudioClip runse;
+
+    AudioSource audioSource;
+
+    int audioswich=0;
+
+    bool audioswichbool=true;
+
+    float setime;
+
     // Use this for initialization
     void Start()
     {
@@ -41,7 +55,7 @@ public class cs : MonoBehaviour
 
         ani = GetComponent<Animator>();
 
-   
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -49,9 +63,52 @@ public class cs : MonoBehaviour
     void Update()
     {
 
+        setime+=Time.deltaTime;
+
+        if (audioswichbool == true)
+        {
+
+            if (setime >= 2.5)
+            {
+
+                setime = 0;
+
+                audioSource.PlayOneShot(runse);
+
+
+            }
+
+        }else if (audioswichbool == false)
+        {
+
+            switch (audioswich)
+            {
+
+                case 1:
+
+  audioswichbool = true;
+
+                    audioSource.PlayOneShot(jampse);
+
+                    break;
+
+                case 2:
+
+                    audioswichbool = true;
+
+                    audioSource.PlayOneShot(hitse);
+
+                    break;
+
+            }
+
+        }
+
+       
+
         timeswich += Time.deltaTime;
 
-        bool isjump = Input.GetKey(KeyCode.Space);
+        bool isjump = Input.GetButton("Jump");
 
         bool isslli = Input.GetKey(KeyCode.DownArrow);
 
@@ -123,6 +180,10 @@ public class cs : MonoBehaviour
             if (Input.GetButton("Jump"))
             {
 
+                audioswich = 1;
+
+                audioswichbool = false;
+
                 moveD.y = jumped;
 
             }
@@ -151,6 +212,10 @@ public class cs : MonoBehaviour
                     timeswich = 0;
 
                     js.life -= 1;
+
+                    audioswich = 2;
+
+                    audioswichbool = false;
 
                 }
 

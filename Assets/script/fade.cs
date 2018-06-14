@@ -58,7 +58,7 @@ GetComponent<RawImage>().color = new Color(damegecolor, damegecolor2, damegecolo
 
         }
 
-  
+
         
         }
 

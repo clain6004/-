@@ -15,7 +15,7 @@ public class startfede : MonoBehaviour
 
     public float colortimemax = 0.007f;
 
-    float time_;
+  static public  float time_;
 
     public Text starttext;
 

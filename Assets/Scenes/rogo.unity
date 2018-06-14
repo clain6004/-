@@ -824,18 +824,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 23
+    m_FontSize: 21
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 215
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4F7F\u7528\u30BD\u30D5\u30C8\r\n\u30FBUnity\u30FBMicrosoft Visual Studio\u30FBCLIPSTUDIOPEINT\u30FBSourcetree\u30FBGithab\r\nAsset\r\n\u30FB\u62FE\u3044\u7269\u30FBUnitychan\u30FBSky5x\u30FB\u305D\u306E\u307B\u304B\u30C6\u30AD\u30C8\u30FC\u306B\u4F5C\u3063\u305F\u3084\u3064\r\n\u30B9\u30DA\u30B7\u30E3\u30EB\u30B5\u30F3\u30AF\u30B9\r\n\u30FB\u30E2\u30AB\u30FB\u30B7\u30E5\u30AC\u30FC\u30FBKa\u30FB\u5148\u751F\u65B9\u30FB\u305D\u306E\u4ED6\u304A\u4E16\u8A71\u306B\u306A\u3063\u305F\u65B9\u3005\u30FB\u30D7\u30EC\u30A4\u3057\u3066\u304F\u3060\u3055\u3063\u305F\u7686\u3055\u3093"
+  m_Text: "\u4F7F\u7528\u30BD\u30D5\u30C8\r\n\u30FBUnity\u30FBMicrosoft Visual Studio\u30FBCLIPSTUDIOPEINT\u30FBSourcetree\u30FBGithab\r\nAsset\r\n\u30FB\u62FE\u3044\u7269\u30FBUnitychan\u30FBSky5x\u30FB\u56DE\u8EE2\u30AA\u30C8\u30A8\u30D5\u30DF\u69D8\u300C\u5730\u4E0B\u5009\u5EAB\u3067\u306E\u4E00\u9A0E\u6253\u3061\u300D\u30FB\u305D\u306E\u307B\u304B\u30C6\u30AD\u30C8\u30FC\u306B\u4F5C\u3063\u305F\u3084\u3064\r\n\u30B9\u30DA\u30B7\u30E3\u30EB\u30B5\u30F3\u30AF\u30B9\r\n\u30FB\u30E2\u30AB\u30FB\u30B7\u30E5\u30AC\u30FC\u30FB\u30D5\u30A7\u30F3\u30EA\u30EB\u30FB\u5148\u751F\u65B9\u30FB\u305D\u306E\u4ED6\u304A\u4E16\u8A71\u306B\u306A\u3063\u305F\u65B9\u3005\u30FB\u30D7\u30EC\u30A4\u3057\u3066\u304F\u3060\u3055\u3063\u305F\u7686\u3055\u3093"
 --- !u!222 &1554243176
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -853,6 +853,7 @@ GameObject:
   - component: {fileID: 1693547345}
   - component: {fileID: 1693547344}
   - component: {fileID: 1693547346}
+  - component: {fileID: 1693547347}
   m_Layer: 5
   m_Name: back
   m_TagString: Untagged
@@ -933,6 +934,88 @@ MonoBehaviour:
   - {fileID: 829928938}
   - {fileID: 651262473}
   fedetime: 1
+  rogoodio: {fileID: 8300000, guid: 6b80dcc6fa2858f42a26b2d7d2399265, type: 3}
+  rogoodio2: {fileID: 8300000, guid: 1fe7fa3363d614a7196e93a1be83856d, type: 3}
+--- !u!82 &1693547347
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1693547342}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1980627853
 GameObject:
   m_ObjectHideFlags: 0
