@@ -19,11 +19,21 @@ public class textcolor : MonoBehaviour {
 
     float textcolors3;
 
-    float colortime = 0f;
+    float colortime = 1f;
 
     public float colortimemax = 0.01f;
 
     bool senceswich = false;
+
+    bool fadeswich = true;
+
+    public AudioClip audioClip;
+
+    AudioSource audioSource;
+
+    bool audiobool=false;
+
+    float audiotime;
 
     // Use this for initialization
     void Start () {
@@ -40,37 +50,79 @@ public class textcolor : MonoBehaviour {
 
         textcolors3 = anytext.GetComponent<Text>().color.b;
 
+        audioSource = GetComponent<AudioSource>();
+
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.anyKey)
+        if (fadeswich == true)
         {
 
-            senceswich = true;
+            colortime -= colortimemax;
 
-        }
-
-        if (senceswich)
-        {
-
-            colortime += colortimemax;
-
-            if (colortime >= 1)
+            if (colortime <= 0)
             {
 
-                colortime = 1;
+                fadeswich = false;
 
-                SceneManager.LoadScene("Main");
+                colortime = 0;
 
             }
 
         }
+        else
+        {
 
-        GetComponent<RawImage>().color = new Color(backcolor, backcolor2, backcolor3, colortime);
+            if (Input.anyKey)
+            {
 
-        anytext.color = new Color(textcolors, textcolors2, textcolors3, Mathf.PingPong(Time.time, 1));
+                audiobool = true;
+
+                senceswich = true;
+
+
+            }
+
+            if (audiobool == true)
+            {
+
+                audiotime += Time.deltaTime;
+
+                if (audiotime >= 0.1)
+                {
+
+                    audiobool = false;
+
+                    audioSource.PlayOneShot(audioClip);
+
+                }
+
+            }
+
+            if (senceswich)
+            {
+
+                colortime += colortimemax;
+
+                if (colortime >= 1)
+                {
+
+                    colortime = 1;
+
+                    SceneManager.LoadScene("Main");
+
+                }
+
+            }
+
+        
+        }
+
+    GetComponent<RawImage>().color = new Color(backcolor, backcolor2, backcolor3, colortime);
+
+            anytext.color = new Color(textcolors, textcolors2, textcolors3, Mathf.PingPong(Time.time, 1));
 
 	}
 }

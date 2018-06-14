@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class js : MonoBehaviour {
 
+
     public float time1;
 
     public float time2=15f;
@@ -22,9 +23,7 @@ public class js : MonoBehaviour {
 
     float colortime=0;
 
-
     public float colortimemax = 0.005f;
-
 
     public AudioClip audioC;
 
@@ -83,6 +82,7 @@ public class js : MonoBehaviour {
         {
 
 
+
             colortime += colortimemax;
 
             if (audioclipbool == true)
@@ -113,4 +113,5 @@ public class js : MonoBehaviour {
         }
 
     }
+
 }

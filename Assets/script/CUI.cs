@@ -31,7 +31,7 @@ public class CUI : MonoBehaviour
 
     static public int scoretime2;
 
-   
+    static public int scoretime3;
 
     // Use this for initialization
     void Start()
@@ -53,7 +53,9 @@ public class CUI : MonoBehaviour
 
             scoretime += Time.deltaTime;
 
-            int scoretime2 = (int)scoretime * 10;
+            scoretime3 = (int)scoretime * 10;
+
+            int scoretime2 = scoretime3;
 
             if (ttime >= 60f)
             {
@@ -108,6 +110,16 @@ public class CUI : MonoBehaviour
 
         }
 
+        Debug.Log(scoretime3);
+
     }
+
+    public static int scorerun()
+    {
+
+        return scoretime3;
+
+    }
+
 }
 

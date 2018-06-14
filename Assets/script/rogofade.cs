@@ -29,6 +29,10 @@ public class rogofade : MonoBehaviour {
 
     public float fedetime=1.0f;
 
+ public AudioClip se;
+
+    public AudioClip se2;
+
     bool [] rogoswich =new bool[4];
 
     bool [] inputswich=new bool[4];
@@ -38,6 +42,14 @@ public class rogofade : MonoBehaviour {
     public AudioClip rogoodio;
 
     public AudioClip rogoodio2;
+
+    bool audiobool=false;
+
+    bool audiobool2 = false;
+
+    float audiotime;
+
+    float audiotime2;
 
     AudioSource audioSource;
 
@@ -94,10 +106,10 @@ public class rogofade : MonoBehaviour {
 
             colortime[0] += colortimemax;
 
+            audiobool = true;
+
             if (colortime[0] >= 1f)
             {
-
-            
 
                     rogoswich[0] = true;
 
@@ -197,6 +209,8 @@ public class rogofade : MonoBehaviour {
                 if (time_[0] >= 3)
                 {
 
+                    audiobool2 = true;
+
                     colortime[2] += colortimemax;
 
                 }
@@ -241,11 +255,7 @@ public class rogofade : MonoBehaviour {
             if (rogoswich[3] == false)
             {
 
-
-
                 colortime[3] += colortimemax;
-
-
 
                 if (colortime[3] >= 1f)
                 {
@@ -281,7 +291,35 @@ public class rogofade : MonoBehaviour {
 
         }
 
+        if (audiobool == true)
+        {
 
+            audiotime += Time.deltaTime;
+
+            if (audiotime <= 0.1)
+            {
+
+                audiobool = false;
+
+                audioSource.PlayOneShot(se);
+
+                audiotime = 0;
+            }
+            }
+
+        if (audiobool2 == true)
+        {
+
+            audiotime2 += Time.deltaTime;
+
+            if (audiotime2 <= 0.04)
+            {
+
+                audiobool2 = false;
+
+                audioSource.PlayOneShot(se2);
+            }
+        }
 
     }
 }
