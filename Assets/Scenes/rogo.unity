@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 8
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,6 +39,7 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -54,11 +55,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -77,15 +77,18 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -107,6 +110,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &246303168
 GameObject:
@@ -445,20 +450,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -547,11 +538,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!4 &796116877
 Transform:
   m_ObjectHideFlags: 0
@@ -835,7 +826,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4F7F\u7528\u30BD\u30D5\u30C8\r\n\u30FBUnity\u30FBMicrosoft Visual Studio\u30FBCLIPSTUDIOPEINT\u30FBSourcetree\u30FBGithab\r\nAsset\r\n\u30FB\u62FE\u3044\u7269\u30FBUnitychan\u30FBSky5x\u30FB\u56DE\u8EE2\u30AA\u30C8\u30A8\u30D5\u30DF\u69D8\u300C\u5730\u4E0B\u5009\u5EAB\u3067\u306E\u4E00\u9A0E\u6253\u3061\u300D\u30FB\u305D\u306E\u307B\u304B\u30C6\u30AD\u30C8\u30FC\u306B\u4F5C\u3063\u305F\u3084\u3064\r\n\u30B9\u30DA\u30B7\u30E3\u30EB\u30B5\u30F3\u30AF\u30B9\r\n\u30FB\u30E2\u30AB\u30FB\u30B7\u30E5\u30AC\u30FC\u30FB\u30D5\u30A7\u30F3\u30EA\u30EB\u30FB\u5148\u751F\u65B9\u30FB\u305D\u306E\u4ED6\u304A\u4E16\u8A71\u306B\u306A\u3063\u305F\u65B9\u3005\u30FB\u30D7\u30EC\u30A4\u3057\u3066\u304F\u3060\u3055\u3063\u305F\u7686\u3055\u3093"
+  m_Text: "\u4F7F\u7528\u30BD\u30D5\u30C8\r\n\u30FBUnity\u30FBMicrosoft Visual Studio\u30FBCLIPSTUDIOPEINT\u30FBSourcetree\u30FBGithab\r\nAsset\r\n\u30FB\u62FE\u3044\u7269\u30FBUnitychan\u30FBSky5x\u30FB\u56DE\u8EE2\u30AA\u30C8\u30A8\u30D5\u30DF\u69D8\u300C\u5730\u4E0B\u5009\u5EAB\u3067\u306E\u4E00\u9A0E\u6253\u3061\u300D\u30FB\u305D\u306E\u307B\u304B\u30C6\u30AD\u30C8\u30FC\u306B\u4F5C\u3063\u305F\u3084\u3064\r\n\u30B9\u30DA\u30B7\u30E3\u30EB\u30B5\u30F3\u30AF\u30B9\r\n\u30FB\u30E2\u30AB\u30FB\u30B7\u30E5\u30AC\u30FC\u30FB\u30D5\u30A7\u30F3\u30CD\u30EB\u30FB\u5148\u751F\u65B9\u30FB\u305D\u306E\u4ED6\u304A\u4E16\u8A71\u306B\u306A\u3063\u305F\u65B9\u3005\u30FB\u30D7\u30EC\u30A4\u3057\u3066\u304F\u3060\u3055\u3063\u305F\u7686\u3055\u3093"
 --- !u!222 &1554243176
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -967,54 +958,69 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - serializedVersion: 2
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
